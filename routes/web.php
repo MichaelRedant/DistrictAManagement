@@ -3,11 +3,11 @@
 use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend;
+use App\Http\Controllers\Backend\Members\MemberController;
 use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\Setup\LabelController;
 use App\Http\Controllers\Backend\Setup\LedenStratenController;
 use App\Http\Controllers\Backend\UserController;
-use App\Models\LedenStraten;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,7 +51,7 @@ Route::prefix('profile')->group(function(){
     Route::post('/password/update',[ProfileController::class,'PasswordUpdate'])->name('password.update');
 });
 
-//Setup management - Straten 
+//Setup management
 Route::prefix('setup')->group(function(){
    /*  - Straten */ 
     Route::get('/leden/straten/view',[LedenStratenController::class,'ViewStreet'])->name('leden.straten.view');
@@ -67,4 +67,10 @@ Route::prefix('setup')->group(function(){
     Route::get('/leden/label/edit/{id}',[LabelController::class,'EditLabel'])->name('leden.label.edit');
     Route::post('/leden/label/update/{id}',[LabelController::class,'UpdateLabel'])->name('leden.label.update');
     Route::get('/leden/label/delete/{id}',[LabelController::class,'DeleteLabel'])->name('leden.label.delete');
+});
+
+//Leden
+Route::prefix('members')->group(function(){
+    Route::get('/view',[MemberController::class,'ViewMembers'])->name('members.view');
+    Route::get('/add',[MemberController::class,'AddMembers'])->name('members.add');
 });

@@ -73,6 +73,19 @@
             <li><a href="{{route('leden.label.view')}}"><i class="ti-more"></i>Labels</a></li>
           </ul>
         </li>
+
+        <li class="treeview {{($prefix == '/members')?'active':''}}">
+          <a href="#">
+            <i data-feather="grid"></i>
+            <span>Leden Management</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{route('members.view')}}"><i class="ti-more"></i>Leden District A</a></li>
+          </ul>
+        </li>
 		  
 		<li>
           <a href="{{route('admin.logout')}}">
