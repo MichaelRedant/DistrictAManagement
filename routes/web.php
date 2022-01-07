@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend;
 use App\Http\Controllers\Backend\ProfileController;
+use App\Http\Controllers\Backend\Setup\LabelController;
 use App\Http\Controllers\Backend\Setup\LedenStratenController;
 use App\Http\Controllers\Backend\UserController;
 use App\Models\LedenStraten;
@@ -52,10 +53,18 @@ Route::prefix('profile')->group(function(){
 
 //Setup management - Straten 
 Route::prefix('setup')->group(function(){
+   /*  - Straten */ 
     Route::get('/leden/straten/view',[LedenStratenController::class,'ViewStreet'])->name('leden.straten.view');
     Route::get('/leden/straten/add',[LedenStratenController::class,'AddStreet'])->name('leden.straten.add');
     Route::post('/leden/straten/store',[LedenStratenController::class,'StoreStreet'])->name('leden.straten.store');
     Route::get('/leden/straten/edit/{id}',[LedenStratenController::class,'EditStreet'])->name('leden.straten.edit');
     Route::post('/leden/straten/update/{id}',[LedenStratenController::class,'UpdateStreet'])->name('leden.straten.update');
     Route::get('/leden/straten/delete/{id}',[LedenStratenController::class,'DeleteStreet'])->name('leden.straten.delete');
+    /* Labels */
+    Route::get('/leden/label/view',[LabelController::class,'ViewLabel'])->name('leden.label.view');
+    Route::get('/leden/label/add',[LabelController::class,'AddLabel'])->name('leden.label.add');
+    Route::post('/leden/label/store',[LabelController::class,'StoreLabel'])->name('leden.label.store');
+    Route::get('/leden/label/edit/{id}',[LabelController::class,'EditLabel'])->name('leden.label.edit');
+    Route::post('/leden/label/update/{id}',[LabelController::class,'UpdateLabel'])->name('leden.label.update');
+    Route::get('/leden/label/delete/{id}',[LabelController::class,'DeleteLabel'])->name('leden.label.delete');
 });

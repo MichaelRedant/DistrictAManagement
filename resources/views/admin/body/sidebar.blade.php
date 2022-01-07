@@ -70,7 +70,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="{{route('leden.straten.view')}}"><i class="ti-more"></i>Straten</a></li>
-            <li><a href="components_badges.html"><i class="ti-more"></i>Badge</a></li>
+            <li><a href="{{route('leden.label.view')}}"><i class="ti-more"></i>Labels</a></li>
           </ul>
         </li>
 		  
