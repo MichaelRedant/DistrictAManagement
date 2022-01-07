@@ -60,7 +60,7 @@
 		 
         <li class="header nav-small-cap">Leden Management</li>
 		  
-        <li class="treeview {{($prefix == '/leden')?'active':''}}">
+        <li class="treeview {{($prefix == '/setup')?'active':''}}">
           <a href="#">
             <i data-feather="grid"></i>
             <span>Setup Management</span>

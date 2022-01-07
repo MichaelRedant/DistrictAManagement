@@ -6,6 +6,7 @@ use App\Http\Controllers\Backend;
 use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\Setup\LedenStratenController;
 use App\Http\Controllers\Backend\UserController;
+use App\Models\LedenStraten;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,7 +50,12 @@ Route::prefix('profile')->group(function(){
     Route::post('/password/update',[ProfileController::class,'PasswordUpdate'])->name('password.update');
 });
 
-//Setup management
+//Setup management - Straten 
 Route::prefix('setup')->group(function(){
-    Route::get('/leden/straten/view',[LedenStratenController::class,'ViewLedenStraten'])->name('leden.straten.view');
+    Route::get('/leden/straten/view',[LedenStratenController::class,'ViewStreet'])->name('leden.straten.view');
+    Route::get('/leden/straten/add',[LedenStratenController::class,'AddStreet'])->name('leden.straten.add');
+    Route::post('/leden/straten/store',[LedenStratenController::class,'StoreStreet'])->name('leden.straten.store');
+    Route::get('/leden/straten/edit/{id}',[LedenStratenController::class,'EditStreet'])->name('leden.straten.edit');
+    Route::post('/leden/straten/update/{id}',[LedenStratenController::class,'UpdateStreet'])->name('leden.straten.update');
+    Route::get('/leden/straten/delete/{id}',[LedenStratenController::class,'DeleteStreet'])->name('leden.straten.delete');
 });
