@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend;
 use App\Http\Controllers\Backend\ProfileController;
+use App\Http\Controllers\Backend\Setup\LedenStratenController;
 use App\Http\Controllers\Backend\UserController;
 
 /*
@@ -46,4 +47,9 @@ Route::prefix('profile')->group(function(){
     Route::post('/store',[ProfileController::class,'ProfileStore'])->name('profile.store');
     Route::get('/password/view',[ProfileController::class,'PasswordView'])->name('password.view');
     Route::post('/password/update',[ProfileController::class,'PasswordUpdate'])->name('password.update');
+});
+
+//Setup management
+Route::prefix('setup')->group(function(){
+    Route::get('/leden/straten/view',[LedenStratenController::class,'ViewLedenStraten'])->name('leden.straten.view');
 });
