@@ -28,7 +28,8 @@
             <i data-feather="pie-chart"></i>
 			<span>Dashboard</span>
           </a>
-        </li>  
+        </li>
+        @if(Auth::user()->usertype == 'Admin')  
         <li class="header nav-small-cap">Gebruikersmanagement</li>
         <li class="treeview {{($prefix == '/users')?'active':''}}">
           <a href="#">
@@ -43,7 +44,7 @@
             <li><a href="{{route('user.add')}}"><i class="ti-more"></i>Gebruiker Toevoegen</a></li>
           </ul>
         </li> 
-		  
+        @endif
         <li class="treeview {{($prefix == '/profile')?'active':''}}">
           <a href="#">
             <i data-feather="mail"></i> <span>Manage Profiel</span>
@@ -58,7 +59,7 @@
         </li>
 
 		 
-        <li class="header nav-small-cap">Leden Management</li>
+        <li class="header nav-small-cap">District A Management</li>
 		  
         <li class="treeview {{($prefix == '/setup')?'active':''}}">
           <a href="#">
@@ -71,6 +72,7 @@
           <ul class="treeview-menu">
             <li><a href="{{route('leden.straten.view')}}"><i class="ti-more"></i>Straten</a></li>
             <li><a href="{{route('leden.label.view')}}"><i class="ti-more"></i>Labels</a></li>
+            <li><a href="{{route('leden.contact.view')}}"><i class="ti-more"></i>Contact</a></li>
           </ul>
         </li>
 

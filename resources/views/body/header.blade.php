@@ -139,11 +139,11 @@
 															Dagelijks Bestuur
 														</a>
 													</li>
-													<li>
+													{{-- <li>
 														<a class="nav-link" href="#blog" data-hash data-hash-offset="32">
 															Blog
 														</a>
-													</li>
+													</li> --}}
 													<li>
 														<a class="nav-link" href="#googlemaps" data-hash>
 															Contacteer ons

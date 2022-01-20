@@ -8,6 +8,7 @@ use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\Setup\LabelController;
 use App\Http\Controllers\Backend\Setup\LedenStratenController;
 use App\Http\Controllers\Backend\UserController;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -67,10 +68,16 @@ Route::prefix('setup')->group(function(){
     Route::get('/leden/label/edit/{id}',[LabelController::class,'EditLabel'])->name('leden.label.edit');
     Route::post('/leden/label/update/{id}',[LabelController::class,'UpdateLabel'])->name('leden.label.update');
     Route::get('/leden/label/delete/{id}',[LabelController::class,'DeleteLabel'])->name('leden.label.delete');
+    /*Contact*/
+    Route::get('/contact',[ContactController::class,'Contact'])->name('contact');
+    Route::get('/leden/contact/view',[ContactController::class,'ViewContact'])->name('leden.contact.view');
+    Route::post('/contact/form',[ContactController::class,'ContactForm'])->name('contact.form');
 });
 
 //Leden
 Route::prefix('members')->group(function(){
     Route::get('/view',[MemberController::class,'ViewMembers'])->name('members.view');
     Route::get('/add',[MemberController::class,'AddMembers'])->name('members.add');
+    Route::post('/store',[MemberController::class,'StoreMembers'])->name('members.store');
+    Route::get('/edit/{id}',[MemberController::class,'EditMembers'])->name('members.edit');
 });

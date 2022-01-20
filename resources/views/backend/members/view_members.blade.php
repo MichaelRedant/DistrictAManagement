@@ -12,10 +12,11 @@
                  -o-transition: width 2.6s ease-in; transition: width 2.6s ease-in; background-color: #ff6849;"></span>
                  <span class="close-jq-toast-single">×</span><h2 class="jq-toast-heading">District A Bericht</h2>{{session('success')}}</div></div>
               @endif
+              
            <div class="box">
               <div class="box-header with-border">
                 <h3 class="box-title">Lijst met Leden District A</h3>
-                <a href="{{route('members.add')}}" style="float:right;" class="btn btn-rounded btn-success mb-5">Gebruiker Toevoegen</a>
+                <a href="{{route('members.add')}}" style="float:right;" class="btn btn-rounded btn-success mb-5">Lid Toevoegen</a>
               </div>
               <!-- /.box-header -->
               <div class="box-body">
@@ -30,11 +31,10 @@
                               <th>Straat</th>
                               <th>Nummer</th>
                               <th>Website</th>
-                              <th>Dekenij</th>
                               <th>Openingsuren</th>
                               <th>Sluitingsdag</th>
                               <th>Label</th>
-                              <th width="20%">Action</th>
+                              <th width="25%">Action</th>
                           </tr>
                       </thead>
                       <tbody>
@@ -44,16 +44,15 @@
                               <td>{{ $member->name_business }} </td>
                               <td>{{ $member->name_zaakvoerder }}</td>
                               <td>{{ $member->email }}</td>
-                              <td>{{ $member->street_id }}</td>
+                              <td>{{ $member['member_straat']['name'] }}</td>
                               <td>{{ $member->street_number }}</td>
                               <td>{{ $member->website }}</td>
-                              <td>{{ $member->dekenij }}</td>
                               <td>{{ $member->hours }}</td>
-                              <td>{{ $member->closing }}</td>
-                              <td>{{ $member->label }}</td>
+                              <td>{{ $member['member_sluit']['dag'] }}</td>
+                              <td>{{ $member['member_label']['name'] }}</td>
                               <td>
-                                  <a href="{{route('user.edit',$user->id)}}" class="btn btn-light mb-5 mr-3">Edit</a>
-                                  <a href="{{route('user.delete',$user->id)}}" class="btn btn-danger mb-5" id="delete">Delete</a>
+                                  <a href="{{route('members.edit',$member->id)}}" class="btn btn-light mb-5 mr-3">Edit</a>
+                                  <a href="{{route('user.delete',$member->id)}}" class="btn btn-danger mb-5" id="delete">Delete</a>
                               </td>
                           </tr>
                           @endforeach
